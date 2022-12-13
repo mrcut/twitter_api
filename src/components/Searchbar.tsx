@@ -7,6 +7,7 @@ import { Client } from "twitter-api-sdk";
 
 export function Searchbar() {
   const [tweetList, setTweetList] = useState({});
+  const [userInfo, setUserInfo] = useState({});
   const [message, setMessage] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -47,6 +48,7 @@ export function Searchbar() {
   //     : (window.location.href = url);
   // };
 
+  // it searches content related to the keyword on Twitter
   async function searchTweet() {
     // const client = new Client(import.meta.env.VITE_BEARER_TOKEN as string);
     const client = new Client(secret);
@@ -60,8 +62,24 @@ export function Searchbar() {
     console.log("response", JSON.stringify(response, null, 2));
   }
 
+  // it gets the content related to the user on Twitter
+  async function searchUser() {
+    // const client = new Client(import.meta.env.VITE_BEARER_TOKEN as string);
+    const client = new Client(secret);
+    const response = await client.users.findUsersByUsername({
+      usernames: [message],
+      "user.fields": ["username"],
+    });
+    const data = JSON.stringify(response, null, 2);
+    setUserInfo(data);
+    console.log(setUserInfo);
+
+    console.log("response", JSON.stringify(response, null, 2));
+  }
+
   const handleSearch = (url: string, newTab: boolean) => {
     searchTweet();
+    // searchUser();
     newTab
       ? window.open(url, "_blank", "noopener noreferrer")
       : (window.location.href = url);
