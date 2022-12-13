@@ -2,7 +2,7 @@ export const urlApi = "https://api.twitter.com/2/";
 
 export const authHeader = () => {
   const token =
-    "AAAAAAAAAAAAAAAAAAAAAErrkAEAAAAAbZkCGOu95aSq2I0V8R1WzrxgN7U%3DBgeHPnTf6vUl2XqMgnLUC32htsBVnhwTfQClSI7Mv1Y7XKYUbw";
+    "AAAAAAAAAAAAAAAAAAAAAErrkAEAAAAA%2FIE38m5jivORLsvKESr2sL4HufU%3DjiFXDMFss8Xevs4qSwNwHb8wfWlCFyzZMttCzyGrUGt0EaAB7A";
 
   return { Authorization: "Bearer " + token };
 };
@@ -10,3 +10,10 @@ export const authHeader = () => {
 export const urlTweetSearch = urlApi + "tweets/search/recent?query=";
 
 export const urlUser = urlApi + "users/";
+
+export const token =
+  "Bearer " +
+  "AAAAAAAAAAAAAAAAAAAAAErrkAEAAAAA%2FIE38m5jivORLsvKESr2sL4HufU%3DjiFXDMFss8Xevs4qSwNwHb8wfWlCFyzZMttCzyGrUGt0EaAB7A";
+
+export const secret =
+  "AAAAAAAAAAAAAAAAAAAAAErrkAEAAAAA%2FIE38m5jivORLsvKESr2sL4HufU%3DjiFXDMFss8Xevs4qSwNwHb8wfWlCFyzZMttCzyGrUGt0EaAB7A";
